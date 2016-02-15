@@ -164,8 +164,8 @@ sqoop import \
   --table departments \
   --target-dir /user/hive/warehouse/retail_ods.db/departments \
   --append \
-  --fields-terminated-by '|' \
-  --lines-terminated-by '\n' \
+  --fields-terminated-by \| \
+  --lines-terminated-by \n \
   --split-by department_id \
   --where "department_id > 7" \
   --outdir java_files
@@ -178,8 +178,8 @@ sqoop import \
   --table departments \
   --target-dir /user/hive/warehouse/retail_ods.db/departments \
   --append \
-  --fields-terminated-by '|' \
-  --lines-terminated-by '\n' \
+  --fields-terminated-by \| \
+  --lines-terminated-by \n \
   --check-column "department_id" \
   --incremental append \
   --last-value 7 \
@@ -193,8 +193,8 @@ sqoop job --create sqoop_job \
   --table departments \
   --target-dir /user/hive/warehouse/retail_ods.db/departments \
   --append \
-  --fields-terminated-by '|' \
-  --lines-terminated-by '\n' \
+  --fields-terminated-by \| \
+  --lines-terminated-by \n \
   --check-column "department_id" \
   --incremental append \
   --last-value 7 \
@@ -213,8 +213,8 @@ sqoop import \
   --username=retail_dba \
   --password=cloudera \
   --table departments \
-  --fields-terminated-by '|' \
-  --lines-terminated-by '\n' \
+  --fields-terminated-by \| \
+  --lines-terminated-by \n \
   --hive-home /user/hive/warehouse/retail_ods.db \
   --hive-import \
   --hive-overwrite \
@@ -227,8 +227,8 @@ sqoop import \
   --username=retail_dba \
   --password=cloudera \
   --table departments \
-  --fields-terminated-by '|' \
-  --lines-terminated-by '\n' \
+  --fields-terminated-by \| \
+  --lines-terminated-by \n \
   --hive-home /user/hive/warehouse \
   --hive-import \
   --hive-table departments_test \
@@ -251,8 +251,8 @@ sqoop export --connect "jdbc:mysql://quickstart.cloudera:3306/retail_rpt_db" \
        --password cloudera \
        --table departments \
        --export-dir /user/hive/warehouse/retail_ods.db/departments \
-       --input-fields-terminated-by '|' \
-       --input-lines-terminated-by '\n' \
+       --input-fields-terminated-by \| \
+       --input-lines-terminated-by \n \
        --num-mappers 2 \
        --batch \
        --outdir java_files
